@@ -1,0 +1,19 @@
+{
+  "name": "testLandPage",
+  "version": "1.0.0",
+  "description": "Land Page",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lisandroValentim/testLandPage.git"
+  },
+  "author": "LB",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lisandroValentim/testLandPage/issues"
+  },
+  "homepage": "https://github.com/lisandroValentim/testLandPage#readme"
+}
