@@ -455,18 +455,18 @@ section#contact {
     box-shadow: none; }
   section#contact ::-webkit-input-placeholder {
     font-weight: 700;
-    color: #eeeeee;
+    color: #222222;
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-transform: uppercase; }
   section#contact :-moz-placeholder {
     font-weight: 700;
-    color: #eeeeee;
+    color: #222222;
     /* Firefox 18- */
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-transform: uppercase; }
   section#contact ::-moz-placeholder {
     font-weight: 700;
-    color: #eeeeee;
+    color: #222222;
     /* Firefox 19+ */
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-transform: uppercase; }
