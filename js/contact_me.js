@@ -19,7 +19,40 @@ $(function() {
       }
       $this = $("#sendMessageButton");
       $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
-      $.ajax({
+      var tbContato = localStorage.getItem("tbContato");// Recupera os dados armazenados
+          tbContato = JSON.parse(tbContato); // Converte string para objeto
+          if(tbContato == null) // Caso não haja conteúdo, iniciamos um vetor vazio
+          tbContato = [];
+      var contato = JSON.stringify({
+          Nome     : $("#name").val(),
+          Fone     : $("#phone").val(),
+          Email    : $("#email").val(),
+          Mensagem : $("#message").val()
+        });
+        tbContato.push(contato);
+        localStorage.setItem("tbContato", JSON.stringify(tbContato));
+        // Tempo de fechamento da mensagem
+        var timeClose = 4000;
+        // Success message
+        $('#success').html("<div class='alert alert-success'>");
+        $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+        .append("</button>");
+        $('#success > .alert-success')
+        .append("<strong>Obrigado!</strong> Sua mensagem foi enviada.");
+        $('#success > .alert-success')
+        .append('</div>');
+        setInterval(function(){
+            $('.alert').fadeOut('slow');    
+        },timeClose);
+        //clear all fields
+        $('#contactForm').trigger("reset");
+        /*alert("Registro adicionado.");
+          $("#name").val("");
+          $("#phone").val("");
+          $("#email").val("");
+          $("#message").val("");
+          return true;      */
+      /*$.ajax({
         url: "././mail/contact_me.php",
         type: "POST",
         data: {
@@ -27,6 +60,7 @@ $(function() {
           phone: phone,
           email: email,
           message: message
+        
         },
         cache: false,
         success: function() {
@@ -56,7 +90,7 @@ $(function() {
             $this.prop("disabled", false); // Re-enable submit button when AJAX call is complete
           }, 1000);
         }
-      });
+      });*/
     },
     filter: function() {
       return $(this).is(":visible");
@@ -73,3 +107,45 @@ $(function() {
 $('#name').focus(function() {
   $('#success').html('');
 });
+
+// Apresta mensagem para o usuario 
+/*var alertMSG = function(string, type){
+    
+    // Tempo de fechamento da mensagem
+    var timeClose = 4000;
+    
+    switch (type){
+        case 1 :
+        $('.alertMSG').html(
+            '<div class="alert alert-success">'+string+'</div>'
+            );
+        setInterval(function(){
+            $('.alert').fadeOut('slow');    
+        },timeClose);
+        break;
+        case 2 :
+        $('.alertMSG').html(
+            '<div class="alert alert-info">'+string+'</div>'
+            );
+        setInterval(function(){
+            $('.alert').fadeOut('slow');    
+        }, timeClose);
+        break;
+        case 3 :
+        $('.alertMSG').html(
+            '<div class="alert alert-warning">'+string+'</div>'
+            );
+        setInterval(function(){
+            $('.alert').fadeOut('slow');    
+        }, timeClose);
+        break;
+        case 4 :
+        $('.alertMSG').html(
+            '<div class="alert alert-danger">'+string+'</div>'
+            );
+        setInterval(function(){
+            $('.alert').fadeOut('slow');    
+        }, timeClose);
+        break;
+    }    
+}*/
